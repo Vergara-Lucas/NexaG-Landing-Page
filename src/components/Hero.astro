@@ -1,0 +1,126 @@
+---
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-atmosphere" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="grid"></div>
+  </div>
+
+  <div class="container hero-content">
+    <p class="eyebrow reveal">Software Factory · Rosario, Argentina</p>
+    <h1 id="hero-title" class="reveal reveal-delay-1">
+      Desarrollo de Software a Medida para PyMEs y Empresas de Servicios
+    </h1>
+    <h2 class="hero-subtitle reveal reveal-delay-2">
+      Digitalizamos y automatizamos tu gestión operativa. Eliminá tareas manuales,
+      centralizá tu información y escalá tu negocio con sistemas web seguros y
+      eficientes, construidos paso a paso.
+    </h2>
+    <div class="btn-group reveal reveal-delay-3">
+      <a
+        class="btn btn-primary"
+        href="https://calendly.com/nexag/15min"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Agendar Diagnóstico Gratuito
+      </a>
+      <a class="btn btn-secondary" href="#contacto">Hablemos de tu Proyecto</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    isolation: isolate;
+    min-height: min(92vh, 860px);
+    display: grid;
+    align-items: end;
+    padding: clamp(4rem, 10vw, 7rem) 0 clamp(4.5rem, 9vw, 7rem);
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-atmosphere {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(0, 133, 255, 0.18), transparent 32%),
+      radial-gradient(circle at 82% 18%, rgba(0, 212, 178, 0.14), transparent 28%),
+      linear-gradient(180deg, #0d121b 0%, var(--bg) 100%);
+  }
+
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(248, 249, 250, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(248, 249, 250, 0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 85%);
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(8px);
+    animation: drift 9s ease-in-out infinite;
+  }
+
+  .orb-a {
+    width: 28vw;
+    height: 28vw;
+    max-width: 360px;
+    max-height: 360px;
+    left: -6%;
+    top: 18%;
+    background: rgba(0, 133, 255, 0.18);
+  }
+
+  .orb-b {
+    width: 22vw;
+    height: 22vw;
+    max-width: 280px;
+    max-height: 280px;
+    right: 8%;
+    top: 24%;
+    background: rgba(0, 212, 178, 0.14);
+    animation-delay: -3s;
+  }
+
+  .hero-content {
+    max-width: 920px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    margin-bottom: 1.15rem;
+    color: var(--teal);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    max-width: 15ch;
+    font-size: clamp(2.35rem, 6.4vw, 4.35rem);
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-subtitle {
+    max-width: 48ch;
+    margin-bottom: 2rem;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-size: clamp(1.05rem, 2.1vw, 1.25rem);
+    font-weight: 500;
+    line-height: 1.55;
+    letter-spacing: 0;
+  }
+</style>

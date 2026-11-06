@@ -1,0 +1,115 @@
+---
+---
+
+<section class="section about" id="nosotros" aria-labelledby="about-title">
+  <div class="container about-grid">
+    <div>
+      <p class="section-label">Sobre nosotros</p>
+      <h2 class="section-title" id="about-title">Ingeniería Corporativa para PyMEs</h2>
+      <div class="copy">
+        <p>
+          Soy Lucas Vergara, fundador de NexaG Software Factory y Desarrollador
+          Senior (.NET Expert). Cuento con más de 6 años de trayectoria
+          garantizando la estabilidad, rendimiento y evolución de sistemas
+          críticos para grandes corporaciones (desarrollando APIs, arquitecturas
+          N-Tier y bases de datos SQL).
+        </p>
+        <p>
+          Hoy, dedico esa misma solidez técnica para construir soluciones a
+          medida que resuelven problemas reales en PyMEs de servicios, logística
+          y mantenimiento. Mi enfoque es 100% de negocio: el software que
+          construimos debe hacerte ahorrar tiempo, reducir costos humanos y
+          aumentar tu facturación.
+        </p>
+      </div>
+      <a
+        class="btn btn-secondary linkedin"
+        href="https://www.linkedin.com/in/vergara-lucas/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ver perfil en LinkedIn
+      </a>
+    </div>
+
+    <aside class="stats" aria-label="Credenciales">
+      <div>
+        <strong>+6</strong>
+        <span>años en sistemas críticos</span>
+      </div>
+      <div>
+        <strong>.NET</strong>
+        <span>APIs, N-Tier y SQL Server</span>
+      </div>
+      <div>
+        <strong>MVP</strong>
+        <span>entrega modular por fases</span>
+      </div>
+      <div>
+        <strong>B2B</strong>
+        <span>consultoría de software para PyMEs</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .about {
+    background:
+      radial-gradient(circle at 90% 20%, rgba(0, 212, 178, 0.08), transparent 28%),
+      var(--bg);
+  }
+
+  .about-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .copy {
+    display: grid;
+    gap: 1rem;
+    margin: 1.35rem 0 1.75rem;
+  }
+
+  .copy p {
+    color: var(--muted);
+    max-width: 58ch;
+    font-size: 1.05rem;
+  }
+
+  .stats {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .stats div {
+    padding: 1.25rem 1.3rem;
+    border-top: 1px solid var(--line);
+    background: linear-gradient(90deg, rgba(0, 133, 255, 0.08), transparent);
+  }
+
+  .stats strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    letter-spacing: -0.04em;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .stats span {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  @media (min-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1.3fr 0.9fr;
+      align-items: end;
+      gap: 3rem;
+    }
+  }
+</style>

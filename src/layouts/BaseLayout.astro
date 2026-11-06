@@ -1,0 +1,79 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Desarrollo de Software a Medida para PyMEs | NexaG Rosario",
+  description = "NexaG Software Factory: desarrollo de software a medida en Rosario y Argentina. Sistemas de gestión para PyMEs, automatización de procesos empresariales y desarrollo web .NET experto.",
+} = Astro.props;
+
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
+---
+
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="Desarrollo de software a medida en Rosario, Sistemas de gestión para PyMEs, Automatización de procesos empresariales, Desarrollo web .NET experto, Consultoría de software B2B, Sistemas para control de técnicos y mantenimientos, NexaG Software Factory"
+    />
+    <meta name="author" content="Lucas Vergara - NexaG Software Factory" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="NexaG Software Factory" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL("/logo.jpg", Astro.site ?? Astro.url).href} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      name: "NexaG Software Factory",
+      description,
+      url: canonical,
+      email: "lukassvergara@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Rosario",
+        addressRegion: "Santa Fe",
+        addressCountry: "AR",
+      },
+      areaServed: ["AR", "LATAM"],
+      founder: {
+        "@type": "Person",
+        name: "Lucas Vergara",
+        sameAs: ["https://www.linkedin.com/in/vergara-lucas/"],
+      },
+      sameAs: ["https://www.linkedin.com/in/vergara-lucas/"],
+    })} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,67 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a class="brand" href="#top" aria-label="NexaG Software Factory">
+      <img src="/logo.jpg" alt="NexaG Software Factory" width="160" height="50" />
+    </a>
+
+    <p>
+      Desarrollo de software a medida en Rosario · Sistemas de gestión para PyMEs ·
+      Automatización de procesos empresariales
+    </p>
+
+    <div class="footer-links">
+      <a href="mailto:lukassvergara@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/vergara-lucas/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://calendly.com/nexag/15min" target="_blank" rel="noopener noreferrer">Calendly</a>
+    </div>
+
+    <small>© {year} NexaG Software Factory. Todos los derechos reservados.</small>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    padding: 2.5rem 0 2.75rem;
+    background: #0c1119;
+  }
+
+  .footer-inner {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .brand img {
+    height: 2.4rem;
+    width: auto;
+  }
+
+  .footer-inner p {
+    max-width: 48ch;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.25rem;
+  }
+
+  .footer-links a {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .footer-links a:hover {
+    color: var(--teal);
+  }
+
+  small {
+    color: var(--muted);
+  }
+</style>

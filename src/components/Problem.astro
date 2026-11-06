@@ -1,0 +1,92 @@
+---
+const pains = [
+  {
+    title: "Caos en planillas",
+    text: "Copiás y pegás datos de un Excel a otro, perdiendo tiempo y generando errores.",
+  },
+  {
+    title: "Descoordinación",
+    text: "Gestionás turnos, técnicos en la calle y vencimientos mediante grupos de WhatsApp o calendarios personales.",
+  },
+  {
+    title: "Trabajo manual",
+    text: "Emitís presupuestos, certificados y reportes uno por uno.",
+  },
+  {
+    title: "Dependencia",
+    text: 'Si la persona que "sabe cómo funciona la planilla" no está, el proceso se frena.',
+  },
+];
+---
+
+<section class="section problem" id="problema" aria-labelledby="problem-title">
+  <div class="container">
+    <p class="section-label">El problema</p>
+    <h2 class="section-title" id="problem-title">¿Tu empresa crece, pero tus procesos se estancan?</h2>
+    <p class="section-lead">
+      Muchos negocios consolidados pierden horas valiosas cada semana atrapados en
+      herramientas que ya no les sirven.
+    </p>
+
+    <div class="pain-grid">
+      {pains.map((pain) => (
+        <article class="pain-item">
+          <h3>{pain.title}</h3>
+          <p>{pain.text}</p>
+        </article>
+      ))}
+    </div>
+
+    <p class="closing">La tecnología debería impulsar tu negocio, no frenarlo.</p>
+  </div>
+</section>
+
+<style>
+  .problem {
+    background:
+      linear-gradient(180deg, rgba(0, 133, 255, 0.04), transparent 30%),
+      var(--bg);
+  }
+
+  .pain-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .pain-item {
+    padding: 1.35rem 1.4rem;
+    border-left: 2px solid transparent;
+    border-image: linear-gradient(180deg, var(--accent), var(--teal)) 1;
+    background: linear-gradient(90deg, rgba(0, 133, 255, 0.08), transparent 70%);
+  }
+
+  .pain-item h3 {
+    margin-bottom: 0.45rem;
+    font-size: 1.15rem;
+  }
+
+  .pain-item p {
+    color: var(--muted);
+  }
+
+  .closing {
+    margin-top: 2.25rem;
+    max-width: 36ch;
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  @media (min-width: 800px) {
+    .pain-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem 1.5rem;
+    }
+  }
+</style>
