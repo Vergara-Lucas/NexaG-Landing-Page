@@ -1,4 +1,18 @@
 ---
+const today = [
+  "Turnos y técnicos en una planilla",
+  "La coordinación vive en WhatsApp",
+  "Presupuestos y certificados de a uno",
+  "Si falta quien conoce el Excel, se frena todo",
+];
+
+const after = [
+  "Agenda y estado de cada visita en un panel",
+  "El equipo mira el mismo sistema",
+  "Documentos que salen desde los datos ya cargados",
+  "El proceso queda en la empresa, no en una persona",
+];
+
 const pains = [
   {
     title: "Caos en planillas",
@@ -6,7 +20,7 @@ const pains = [
   },
   {
     title: "Descoordinación",
-    text: "Gestionás turnos, técnicos en la calle y vencimientos mediante grupos de WhatsApp o calendarios personales.",
+    text: "Gestionás turnos, técnicos en la calle y vencimientos con mensajes o calendarios personales.",
   },
   {
     title: "Trabajo manual",
@@ -14,67 +28,152 @@ const pains = [
   },
   {
     title: "Dependencia",
-    text: 'Si la persona que "sabe cómo funciona la planilla" no está, el proceso se frena.',
+    text: "Si la persona que sabe cómo funciona la planilla no está, el proceso se frena.",
   },
 ];
 ---
 
 <section class="section problem" id="problema" aria-labelledby="problem-title">
   <div class="container">
-    <p class="section-label">El problema</p>
-    <h2 class="section-title" id="problem-title">¿Tu empresa crece, pero tus procesos se estancan?</h2>
-    <p class="section-lead">
-      Muchos negocios consolidados pierden horas valiosas cada semana atrapados en
-      herramientas que ya no les sirven.
+    <p class="section-label reveal">El problema</p>
+    <h2 class="section-title reveal" id="problem-title">Tu empresa crece. La forma de trabajar, no.</h2>
+    <p class="section-lead reveal">
+      Muchos negocios consolidados pierden horas cada semana en herramientas que ya no alcanzan.
+      Este es el cambio que se nota el primer día.
     </p>
+
+    <div class="compare">
+      <article class="compare-card today reveal">
+        <p class="kicker">Hoy</p>
+        <h3>La operación está repartida</h3>
+        <ul>
+          {today.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+      <article class="compare-card next reveal">
+        <p class="kicker">Con NexaG</p>
+        <h3>Todo el proceso en un sistema</h3>
+        <ul>
+          {after.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+    </div>
 
     <div class="pain-grid">
       {pains.map((pain) => (
-        <article class="pain-item">
+        <article class="pain-item reveal">
           <h3>{pain.title}</h3>
           <p>{pain.text}</p>
         </article>
       ))}
     </div>
 
-    <p class="closing">La tecnología debería impulsar tu negocio, no frenarlo.</p>
+    <p class="closing reveal">La tecnología tiene que empujar el negocio, no frenarlo.</p>
   </div>
 </section>
 
 <style>
   .problem {
     background:
-      linear-gradient(180deg, rgba(0, 133, 255, 0.04), transparent 30%),
+      linear-gradient(180deg, rgba(0, 133, 255, 0.05), transparent 28%),
       var(--bg);
+  }
+
+  .compare {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2.2rem;
+  }
+
+  .compare-card {
+    padding: 1.35rem 1.25rem 1.2rem;
+    border-radius: calc(var(--radius) + 2px);
+    border: 1px solid var(--line);
+  }
+
+  .today {
+    background: rgba(248, 249, 250, 0.02);
+  }
+
+  .next {
+    background:
+      linear-gradient(165deg, rgba(0, 133, 255, 0.16), rgba(0, 212, 178, 0.08) 42%, transparent 70%),
+      var(--bg-soft);
+    border-color: rgba(0, 212, 178, 0.28);
+  }
+
+  .kicker {
+    margin-bottom: 0.45rem;
+    color: var(--teal);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .compare-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
+  }
+
+  .compare-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .compare-card li {
+    display: grid;
+    grid-template-columns: 1.1rem 1fr;
+    gap: 0.65rem;
+    align-items: start;
+    color: var(--text);
+  }
+
+  .compare-card li::before {
+    content: "";
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-top: 0.45rem;
+    border-radius: 50%;
+    background: #6b7686;
+  }
+
+  .next li::before {
+    background: var(--grad);
+    box-shadow: 0 0 0 4px rgba(0, 212, 178, 0.12);
   }
 
   .pain-grid {
     display: grid;
-    gap: 1rem;
-    margin-top: 2.5rem;
+    gap: 0.9rem;
+    margin-top: 1.2rem;
   }
 
   .pain-item {
-    padding: 1.35rem 1.4rem;
-    border-left: 2px solid transparent;
-    border-image: linear-gradient(180deg, var(--accent), var(--teal)) 1;
-    background: linear-gradient(90deg, rgba(0, 133, 255, 0.08), transparent 70%);
+    padding: 1.15rem 1.15rem 1.2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--line);
+    background: rgba(26, 35, 51, 0.45);
   }
 
   .pain-item h3 {
-    margin-bottom: 0.45rem;
-    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+    font-size: 1.05rem;
   }
 
   .pain-item p {
     color: var(--muted);
+    font-size: 0.96rem;
   }
 
   .closing {
-    margin-top: 2.25rem;
-    max-width: 36ch;
+    margin-top: 2rem;
+    max-width: 28ch;
     font-family: var(--font-display);
-    font-size: clamp(1.35rem, 3vw, 1.8rem);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
     font-weight: 700;
     letter-spacing: -0.03em;
     background: var(--grad);
@@ -83,10 +182,11 @@ const pains = [
     color: transparent;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 860px) {
+    .compare,
     .pain-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem 1.5rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
     }
   }
 </style>

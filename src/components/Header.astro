@@ -1,9 +1,9 @@
 ---
 const links = [
-  { href: "#problema", label: "Problema" },
+  { href: "#para-quien", label: "Para quién" },
+  { href: "#problema", label: "El problema" },
   { href: "#soluciones", label: "Soluciones" },
   { href: "#metodologia", label: "Método" },
-  { href: "#nosotros", label: "Nosotros" },
   { href: "#contacto", label: "Contacto" },
 ];
 ---
@@ -11,7 +11,7 @@ const links = [
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="brand" href="#top" aria-label="NexaG Software Factory">
-      <img src="/logo.jpg" alt="NexaG Software Factory" width="180" height="56" />
+      <img src="/logo.png" alt="NexaG Software Factory" width="480" height="120" />
     </a>
 
     <nav class="nav" aria-label="Principal">
@@ -26,7 +26,7 @@ const links = [
       target="_blank"
       rel="noopener noreferrer"
     >
-      Agendar Diagnóstico
+      Agendar diagnóstico
     </a>
 
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú">
@@ -41,7 +41,7 @@ const links = [
         <a href={link.href}>{link.label}</a>
       ))}
       <a class="btn btn-primary" href="https://calendly.com/nexag/15min" target="_blank" rel="noopener noreferrer">
-        Agendar Diagnóstico
+        Agendar diagnóstico
       </a>
     </nav>
   </div>
@@ -52,8 +52,8 @@ const links = [
     position: sticky;
     top: 0;
     z-index: 50;
-    backdrop-filter: blur(16px);
-    background: rgba(16, 22, 32, 0.82);
+    backdrop-filter: blur(18px);
+    background: rgba(16, 22, 32, 0.78);
     border-bottom: 1px solid var(--line);
   }
 
@@ -62,11 +62,17 @@ const links = [
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    min-height: 4.4rem;
+    min-height: 4.6rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    min-width: 0;
   }
 
   .brand img {
-    height: 2.6rem;
+    height: 2.7rem;
     width: auto;
     object-fit: contain;
   }
@@ -74,12 +80,12 @@ const links = [
   .nav {
     display: none;
     align-items: center;
-    gap: 1.35rem;
+    gap: 1.2rem;
   }
 
   .nav a {
     color: var(--muted);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 600;
     transition: color 0.2s ease;
   }
@@ -90,9 +96,9 @@ const links = [
 
   .header-cta {
     display: none;
-    min-height: 2.7rem;
-    padding-inline: 1.1rem;
-    font-size: 0.92rem;
+    min-height: 2.65rem;
+    padding-inline: 1.05rem;
+    font-size: 0.9rem;
   }
 
   .menu-toggle {
@@ -105,6 +111,7 @@ const links = [
     place-content: center;
     gap: 0.35rem;
     cursor: pointer;
+    flex-shrink: 0;
   }
 
   .menu-toggle span {
@@ -130,10 +137,14 @@ const links = [
     font-weight: 600;
   }
 
-  @media (min-width: 920px) {
+  @media (min-width: 980px) {
     .nav,
     .header-cta {
       display: inline-flex;
+    }
+
+    .brand img {
+      height: 2.95rem;
     }
 
     .menu-toggle,
@@ -150,12 +161,14 @@ const links = [
   toggle?.addEventListener("click", () => {
     const open = toggle.getAttribute("aria-expanded") === "true";
     toggle.setAttribute("aria-expanded", String(!open));
+    toggle.setAttribute("aria-label", open ? "Abrir menú" : "Cerrar menú");
     panel?.toggleAttribute("hidden", open);
   });
 
   panel?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       toggle?.setAttribute("aria-expanded", "false");
+      toggle?.setAttribute("aria-label", "Abrir menú");
       panel.setAttribute("hidden", "");
     });
   });
