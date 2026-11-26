@@ -11,7 +11,7 @@ const links = [
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="brand" href="#top" aria-label="NexaG Software Factory">
-      <img src="/logo.png" alt="NexaG Software Factory" width="480" height="120" />
+      <img src="/logo.png" alt="NexaG Software Factory" width="960" height="250" />
     </a>
 
     <nav class="nav" aria-label="Principal">
@@ -72,8 +72,9 @@ const links = [
   }
 
   .brand img {
-    height: 2.7rem;
+    height: 2.55rem;
     width: auto;
+    max-width: min(220px, 46vw);
     object-fit: contain;
   }
 
@@ -144,7 +145,8 @@ const links = [
     }
 
     .brand img {
-      height: 2.95rem;
+      height: 2.85rem;
+      max-width: 260px;
     }
 
     .menu-toggle,
