@@ -1,0 +1,71 @@
+---
+const audiences = [
+  {
+    title: "Servicios en la calle",
+    text: "Técnicos, visitas y reportes dejan de coordinarse por mensajes sueltos.",
+  },
+  {
+    title: "Mantenimiento",
+    text: "Vencimientos, certificados e historial de cada cliente quedan en un solo lugar.",
+  },
+  {
+    title: "Administración",
+    text: "Presupuestos y datos que hoy viven en planillas desconectadas pasan al sistema.",
+  },
+];
+---
+
+<section class="section audience" id="para-quien" aria-labelledby="audience-title">
+  <div class="container">
+    <p class="section-label reveal">Para quién</p>
+    <h2 class="section-title reveal" id="audience-title">Para la pyme que ya le quedó chica la planilla.</h2>
+    <p class="section-lead reveal">
+      Si tu empresa de servicios creció y la operación sigue en Excel, WhatsApp o
+      en la cabeza de una sola persona, el siguiente paso es un sistema propio.
+    </p>
+    <div class="audience-grid">
+      {audiences.map((item) => (
+        <article class="audience-card reveal">
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .audience {
+    padding-top: clamp(3.2rem, 6vw, 4.5rem);
+  }
+
+  .audience-grid {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 2rem;
+  }
+
+  .audience-card {
+    padding: 1.25rem 1.2rem 1.3rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background:
+      linear-gradient(160deg, rgba(0, 212, 178, 0.08), transparent 46%),
+      var(--bg-soft);
+  }
+
+  .audience-card h3 {
+    margin-bottom: 0.45rem;
+    font-size: 1.15rem;
+  }
+
+  .audience-card p {
+    color: var(--muted);
+  }
+
+  @media (min-width: 860px) {
+    .audience-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

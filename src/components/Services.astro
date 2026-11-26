@@ -1,37 +1,41 @@
 ---
 const services = [
   {
-    title: "Automatización de Procesos",
-    text: "Transformamos flujos de trabajo manuales en sistemas digitales centralizados. Ej: emisión automática de certificados, control de vencimientos y alertas a clientes.",
+    title: "Automatización de procesos",
+    text: "Los flujos que hoy se hacen a mano pasan a un sistema centralizado. Certificados, vencimientos y avisos a clientes salen del mismo lugar.",
+    outcome: "Menos tareas repetidas",
   },
   {
-    title: "Desarrollo de Sistemas Web a Medida",
-    text: "Paneles de control internos (CRM/ERP propios) accesibles desde cualquier dispositivo para coordinar equipos, visitas de técnicos y reportes en tiempo real.",
+    title: "Sistemas web a medida",
+    text: "Un panel interno para coordinar equipos, visitas de técnicos y reportes, desde la oficina o el celular.",
+    outcome: "Una sola fuente de verdad",
   },
   {
-    title: "Integración de Bases de Datos",
-    text: "Arquitecturas seguras en la nube (Cloud) para que toda tu información esté en un solo lugar, protegida y disponible 24/7.",
+    title: "Datos en un solo lugar",
+    text: "La información de la empresa queda en la nube, ordenada, protegida y disponible cuando el equipo la necesita.",
+    outcome: "Nada queda en una PC",
   },
   {
-    title: "Modernización de Sistemas Legado",
-    text: "Actualizamos ese software viejo que ya no soporta el volumen de tu empresa, migrándolo a tecnologías modernas (.NET, SQL Server).",
+    title: "Modernización de sistemas viejos",
+    text: "Actualizamos el software que ya no acompaña el volumen del negocio, con tecnologías estables como .NET y SQL Server.",
+    outcome: "La operación puede crecer",
   },
 ];
 ---
 
 <section class="section services" id="soluciones" aria-labelledby="services-title">
   <div class="container">
-    <p class="section-label">La solución</p>
-    <h2 class="section-title" id="services-title">Soluciones de Software diseñadas para tu operativa</h2>
-    <p class="section-lead">
-      En NexaG Software Factory no vendemos sistemas enlatados rígidos. Construimos
-      ingeniería corporativa adaptada a la agilidad y el presupuesto de tu PyME.
+    <p class="section-label reveal">La solución</p>
+    <h2 class="section-title reveal" id="services-title">Software que sigue tu operación, no un paquete rígido.</h2>
+    <p class="section-lead reveal">
+      En NexaG no vendemos un sistema enlatado. Construimos la herramienta que tu pyme
+      necesita, con la solidez de un desarrollo corporativo y un alcance que podés pagar por etapas.
     </p>
 
     <div class="service-grid">
-      {services.map((service, index) => (
-        <article class="service-item">
-          <span class="index">0{index + 1}</span>
+      {services.map((service) => (
+        <article class="service-item reveal">
+          <p class="outcome">{service.outcome}</p>
           <h3>{service.title}</h3>
           <p>{service.text}</p>
         </article>
@@ -47,17 +51,16 @@ const services = [
 
   .service-grid {
     display: grid;
-    gap: 1.15rem;
-    margin-top: 2.75rem;
+    gap: 1rem;
+    margin-top: 2.4rem;
   }
 
   .service-item {
-    position: relative;
-    padding: 1.6rem 1.45rem 1.55rem;
+    padding: 1.4rem 1.3rem 1.45rem;
     border: 1px solid var(--line);
     border-radius: var(--radius);
     background:
-      linear-gradient(160deg, rgba(0, 133, 255, 0.08), transparent 45%),
+      linear-gradient(165deg, rgba(0, 133, 255, 0.09), transparent 42%),
       var(--bg-soft);
     transition: border-color 0.25s ease, transform 0.25s ease;
   }
@@ -67,28 +70,27 @@ const services = [
     transform: translateY(-4px);
   }
 
-  .index {
-    display: inline-block;
-    margin-bottom: 1rem;
-    color: var(--accent);
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    font-weight: 700;
+  .outcome {
+    margin-bottom: 0.85rem;
+    color: var(--teal);
+    font-size: 0.75rem;
+    font-weight: 800;
     letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .service-item h3 {
-    margin-bottom: 0.7rem;
-    font-size: 1.25rem;
+    margin-bottom: 0.6rem;
+    font-size: 1.28rem;
   }
 
-  .service-item p {
+  .service-item p:last-child {
     color: var(--muted);
   }
 
   @media (min-width: 860px) {
     .service-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
     }
   }
 </style>

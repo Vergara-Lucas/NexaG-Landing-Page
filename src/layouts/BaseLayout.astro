@@ -29,8 +29,10 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : As
     <meta name="author" content="Lucas Vergara - NexaG Software Factory" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_AR" />
@@ -38,7 +40,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : As
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL("/logo.jpg", Astro.site ?? Astro.url).href} />
+    <meta property="og:image" content={new URL("/og.png", Astro.site ?? Astro.url).href} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -75,5 +77,25 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : As
   </head>
   <body>
     <slot />
+    <script>
+      const nodes = document.querySelectorAll(".reveal");
+      const show = (el: Element) => el.classList.add("is-in");
+
+      if (!("IntersectionObserver" in window)) {
+        nodes.forEach(show);
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              show(entry.target);
+              io.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.16, rootMargin: "0px 0px -8% 0px" },
+        );
+        nodes.forEach((node) => io.observe(node));
+      }
+    </script>
   </body>
 </html>
